@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Pastesheet Form</title>
+    <link rel="stylesheet" type="text/css" href="/webjars/bootstrap/css/bootstrap.min.css" />
+</head>
+<body>
+<form th:action="@{/pastesheet/edit/{id}(id=${param.id})}" th:object="${param}" method="post">
+    <div style="margin:35px;">
+        <input type="hidden" id="userId" name="userId" th:field="*{userId}">
+        <label for="id">id:::</label><br>
+        <input readonly type="text" id="id" name="id" th:field="*{id}"><br>
+        <label for="title">Title:</label><br>
+        <input type="text" id="title" name="title" th:field="*{title}"><br>
+    </div>
+    <div style="margin:35px;">
+        Content:<br>
+        <textarea class="longInput" style="resize:none;width:500px;height:500px;" id="content" name="content" th:field="*{content}"></textarea>
+    </div>
+    <div style="margin:35px;">
+        <button style="margin-right:15px;" type="submit" class="btn btn-primary">Edit</button>
+    </div>
+</form>
+</body>
+</html>

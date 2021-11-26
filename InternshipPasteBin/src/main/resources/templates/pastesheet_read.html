@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Pastesheet Read</title>
+    <link rel="stylesheet" type="text/css" href="/webjars/bootstrap/css/bootstrap.min.css" />
+</head>
+<body th:object="${pastesheet}">
+<form th:action="@{/logout}" method="post">
+    <p style="text-align:right;">
+        Logged User: <b>[[${#request.userPrincipal.principal.email}]]</b>
+    </p>
+    <input type="submit" style="float:right;" value="Sign Out" />
+</form>
+<div style="margin:15px;">
+    Owner:<br>
+    <textarea readonly class="longInput" style="resize:none;width=500px;" name="title" th:field="*{user.email}"></textarea>
+</div>
+    <div style="margin:15px;">
+       Title:<br>
+        <textarea readonly class="longInput" style="resize:none;width=500px;" name="title" th:field="*{title}"></textarea>
+    </div>
+    <div style="margin:15px;">
+        Content:<br>
+        <textarea readonly class="longInput" style="resize:none;width:500px;height:500px;" name="content" th:field="*{content}"></textarea>
+    </div>
+</body>
+</html>
